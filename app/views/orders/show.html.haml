@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Client:
+  = @order.client
+%p
+  %b Number:
+  = @order.number
+%p
+  %b Pay method:
+  = @order.pay_method
+%p
+  %b Delivery method:
+  = @order.delivery_method
+%p
+  %b Product list:
+  = @order.product_list
+%p
+  %b Cost of products:
+  = @order.cost_of_products
+%p
+  %b Total cost:
+  = @order.total_cost
+%p
+  %b Date of order:
+  = @order.date_of_order
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

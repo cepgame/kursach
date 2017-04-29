@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  short_desc: MyString
+  full_desc: MyText
+  img_id_list: MyText
+  base_price: MyString
+  current_price: MyString
+  amt_in_stock: 1
+  ven_code: 1
+  min_amt_in_order: 1
+
+two:
+  name: MyString
+  short_desc: MyString
+  full_desc: MyText
+  img_id_list: MyText
+  base_price: MyString
+  current_price: MyString
+  amt_in_stock: 1
+  ven_code: 1
+  min_amt_in_order: 1
