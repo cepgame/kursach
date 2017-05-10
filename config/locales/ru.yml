@@ -4,23 +4,30 @@ ru:
     company:
       short_name: МПУ
       department: Кафедра
-    users:
-      index: Список пользователей
-      new-button: Новый пользователь 
-      edit: Редактирование пользователя
-      new: Создание пользователя
-    roles:
-      index: Список возможных ролей пользователей
-      new-button: Новая роль
-      edit: Редактирование роли
-      new: Создание роли
   helpers:
     submit:
       create: Сохранить
       submit: Сохранить
       update: Сохранить
-    sure: Действительно удалить?      
-  
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
   views:
     pagination:
       first: ⇤
@@ -34,6 +41,7 @@ ru:
     attributes:
       user:
         email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
         password: Пароль
         password_confirmation: Подтверждение пароля
         reset_password_email_sent_at: Дата отправления письма для смены пароля
@@ -41,11 +49,7 @@ ru:
         activation_token_expires_at: Дата прекращения действия токена активации
         last_login_at: Время последнего входа в систему
         role_users: Роли
-      role:
-        name: Обозначение
-        info: Краткое название
-        full_info: Описание
-      client:
+       client:
         name: Имя
         phone_number: Телефонный номер
         address: Физический адрес
@@ -69,10 +73,18 @@ ru:
         amt_in_stock: Кол-во на складе
         ven_code: Артикул
         min_amt_in_order: Мин. кол-во в заказе
-    errors:
-      models:
-        person:
-          attributes:
-            snils:
-              check_sum: имеет неправильную контрольную сумму
+      role: 
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      # nested_start
+      role_user: &role_users
+      # nested_finish
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      # nested_start
+      user/role_users:
+        <<: *role_users
+      # nested_finish
           
