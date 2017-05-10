@@ -1,15 +1,24 @@
-%h1 Listing clients
+=breadcrumb_tag do
+  %li.active
+    Клиенты
+  %li
+    Администрирование
+    
+%h1= t('app.clients.index')
 
-%table
+%table.table.table-hover.table-striped.center
+  %caption
+    .pull-right
+      = link_to t('app.clients.new-button'), new_client_path, class: 'btn btn-primary'
   %thead
     %tr
-      %th Name
-      %th Phone number
-      %th Address
-      %th Email
-      %th
-      %th
-      %th
+      %th= Client.human_attribute_name(:name)
+      %th= Client.human_attribute_name(:phone_number)
+      %th= Client.human_attribute_name(:address)
+      %th= Client.human_attribute_name(:email)
+      %th.p50
+      %th.p50
+      %th.p50
 
   %tbody
     - @clients.each do |client|
@@ -18,10 +27,13 @@
         %td= client.phone_number
         %td= client.address
         %td= client.email
-        %td= link_to 'Show', client
-        %td= link_to 'Edit', edit_client_path(client)
-        %td= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to client, class: 'btn btn-success' do
+            = fa_icon :eye
+        %td
+          = link_to edit_client_path(client), class: 'btn btn-info' do
+            = fa_icon :edit
+        %td
+          = link_to client, :method => :delete, :data => { confirm: t('helpers.sure') }, class: 'btn btn-danger' do
+            =fa_icon :times
 
-%br
-
-= link_to 'New Client', new_client_path

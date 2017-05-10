@@ -1,18 +1,20 @@
-%p#notice= notice
-
-%p
-  %b Name:
+=breadcrumb_tag do
+  %li.active
+    = @client.name
+  %li
+    = link_to 'Клиенты', clients_path
+  %li
+    Администрирование
+    
+%h1
   = @client.name
-%p
-  %b Phone number:
-  = @client.phone_number
-%p
-  %b Address:
-  = @client.address
-%p
-  %b Email:
-  = @client.email
 
-= link_to 'Edit', edit_client_path(@client)
-\|
-= link_to 'Back', clients_path
+%dl
+  %dt= Client.human_attribute_name(:name)
+  %dd= @client.name
+  %dt= Client.human_attribute_name(:phone_number)
+  %dd= @client.phone_number
+  %dt= Client.human_attribute_name(:address)
+  %dd= @client.address
+  %dt= Client.human_attribute_name(:email)
+  %dd= @client.email

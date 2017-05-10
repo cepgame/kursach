@@ -4,11 +4,37 @@ ru:
     company:
       short_name: МПУ
       department: Кафедра
+    users:
+      index: Список пользователей
+      new-button: Новый пользователь 
+      edit: Редактирование пользователя
+      new: Создание пользователя
+    roles:
+      index: Список возможных ролей пользователей
+      new-button: Новая роль
+      edit: Редактирование роли
+      new: Создание роли
+    clients:
+      index: Список возможных клиентов
+      new-button: Новый клиент
+      edit: Редактирование клиента
+      new: Создание клиента
+    orders:
+      index: Список возможных заказов
+      new-button: Новый заказ
+      edit: Редактирование заказа
+      new: Создание заказа
+    products:
+      index: Список возможных продуктов 
+      new-button: Новый продукт
+      edit: Редактирование продукта
+      new: Создание продукта
   helpers:
     submit:
       create: Сохранить
       submit: Сохранить
       update: Сохранить
+    sure: Действительно удалить?      
   buttons:
     edit: Редактировать
     destroy: Удалить
@@ -49,7 +75,11 @@ ru:
         activation_token_expires_at: Дата прекращения действия токена активации
         last_login_at: Время последнего входа в систему
         role_users: Роли
-       client:
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      client:
         name: Имя
         phone_number: Телефонный номер
         address: Физический адрес
@@ -73,6 +103,12 @@ ru:
         amt_in_stock: Кол-во на складе
         ven_code: Артикул
         min_amt_in_order: Мин. кол-во в заказе
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму
       role: 
         name: Обозначение
         info: Краткое название
@@ -86,5 +122,5 @@ ru:
       # nested_start
       user/role_users:
         <<: *role_users
-      # nested_finish
-          
+# nested_finish
+

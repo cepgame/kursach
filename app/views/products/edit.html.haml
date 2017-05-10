@@ -1,7 +1,14 @@
-%h1 Editing product
+=breadcrumb_tag do
+  %li.active
+    = t('app.products.edit')
+  %li
+    = link_to(@product.id, @product)
+    
+%h1= t('app.product.edit')
+
 
 = render 'form'
 
-= link_to 'Show', @product
+= link_to 'Показать', @product
 \|
-= link_to 'Back', products_path
+= link_to 'Назад', products_path

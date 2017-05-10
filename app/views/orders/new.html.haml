@@ -1,5 +1,8 @@
-%h1 New order
-
+=breadcrumb_tag do
+  %li.active
+    = t('app.orders.new')
+    
+%h1= t('app.orders.new')
 = render 'form'
 
-= link_to 'Back', orders_path
+= link_to 'Назад', orders_path

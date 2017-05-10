@@ -1,20 +1,29 @@
-%h1 Listing products
+=breadcrumb_tag do
+  %li.active
+    Товары
+  %li
+    Администрирование
+    
+%h1= t('app.products.index')
 
-%table
+%table.table.table-hover.table-striped.center
+  %caption
+    .pull-right
+      = link_to t('app.products.new-button'), new_product_path, class: 'btn btn-primary'
   %thead
     %tr
-      %th Name
-      %th Short desc
-      %th Full desc
-      %th Img id list
-      %th Base price
-      %th Current price
-      %th Amt in stock
-      %th Ven code
-      %th Min amt in order
-      %th
-      %th
-      %th
+      %th= Product.human_attribute_name(:name)
+      %th= Product.human_attribute_name(:short_desc)
+      %th= Product.human_attribute_name(:full_desc)
+      %th= Product.human_attribute_name(:img_id_list)
+      %th= Product.human_attribute_name(:base_price)
+      %th= Product.human_attribute_name(:current_price)
+      %th= Product.human_attribute_name(:amt_in_stock)
+      %th= Product.human_attribute_name(:ven_code)
+      %th= Product.human_attribute_name(:min_amt_in_order)
+      %th.p50
+      %th.p50
+      %th.p50
 
   %tbody
     - @products.each do |product|
@@ -28,10 +37,12 @@
         %td= product.amt_in_stock
         %td= product.ven_code
         %td= product.min_amt_in_order
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Product', new_product_path
+        %td
+          = link_to product, class: 'btn btn-success' do
+            = fa_icon :eye
+        %td
+          = link_to edit_product_path(order), class: 'btn btn-info' do
+            = fa_icon :edit
+        %td
+          = link_to product, :method => :delete, :data => { confirm: t('helpers.sure') }, class: 'btn btn-danger' do
+            =fa_icon :times

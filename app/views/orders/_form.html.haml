@@ -1,34 +1,45 @@
 = form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      %ul
-        - @order.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :client
-    = f.text_field :client
-  .field
-    = f.label :number
-    = f.number_field :number
-  .field
-    = f.label :pay_method
-    = f.text_field :pay_method
-  .field
-    = f.label :delivery_method
-    = f.text_field :delivery_method
-  .field
-    = f.label :product_list
-    = f.text_area :product_list
-  .field
-    = f.label :cost_of_products
-    = f.text_area :cost_of_products
-  .field
-    = f.label :total_cost
-    = f.number_field :total_cost
-  .field
-    = f.label :date_of_order
-    = f.date_select :date_of_order
-  .actions
-    = f.submit 'Save'
+  = error_messages_for @order
+  .row
+    .col-md-4
+      .form-group
+        = f.label :client
+        = f.text_field :client, class: 'form-control'
+        = f.error_messages_for(:client)
+    .col-md-4
+      .form-group
+        = f.label :number
+        = f.number_field :number, class: 'form-control'
+        = f.error_messages_for(:number)
+    .col-md-3
+      .form-group
+        = f.label :pay_method
+        = f.select :pay_method, ['Безналичный расчёт', 'Наличными курьеру'], class: 'form-control'
+        = f.error_messages_for(:pay_method)
+    .col-md-3
+      .form-group
+        = f.label :delivery_method
+        = f.select :delivery_method, ['Курьером', 'Самовывоз', 'Почтой'], class: 'form-control'
+        = f.error_messages_for(:delivery_method)
+    .col-md-4
+      .form-group
+        = f.label :product_list
+        = f.text_area :product_list, class: 'form-control'
+        = f.error_messages_for(:product_list)
+    .col-md-4
+      .form-group
+        = f.label :cost_of_products
+        = f.text_area :cost_of_products, class: 'form-control'
+        = f.error_messages_for(:cost_of_products)
+    .col-md-4
+      .form-group
+        = f.label :total_cost
+        = f.number_field :total_cost, class: 'form-control'
+        = f.error_messages_for(:total_cost)
+    .col-md-5
+      .form-group
+        = f.label :date_of_order
+        = f.date_select :date_of_order, class: 'form-control'
+        = f.error_messages_for(:date_of_order)
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'

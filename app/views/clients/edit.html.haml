@@ -1,7 +1,13 @@
-%h1 Editing client
+=breadcrumb_tag do
+  %li.active
+    = t('app.clients.edit')
+  %li
+    = link_to(@client.id, @client)
+    
+%h1= t('app.clients.edit')
 
 = render 'form'
 
-= link_to 'Show', @client
+= link_to 'Показать', @client
 \|
-= link_to 'Back', clients_path
+= link_to 'Назад', clients_path

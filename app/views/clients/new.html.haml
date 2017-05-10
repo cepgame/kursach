@@ -1,5 +1,8 @@
-%h1 New client
-
+=breadcrumb_tag do
+  %li.active
+    = t('app.clients.new')
+    
+%h1= t('app.clients.new')
 = render 'form'
 
-= link_to 'Back', clients_path
+= link_to 'Назад', clients_path

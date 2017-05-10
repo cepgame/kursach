@@ -1,5 +1,8 @@
-%h1 New product
-
+=breadcrumb_tag do
+  %li.active
+    = t('app.products.new')
+    
+%h1= t('app.products.new')
 = render 'form'
 
-= link_to 'Back', products_path
+= link_to 'Назад', products_path

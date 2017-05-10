@@ -1,33 +1,30 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Short desc:
-  = @product.short_desc
-%p
-  %b Full desc:
-  = @product.full_desc
-%p
-  %b Img id list:
-  = @product.img_id_list
-%p
-  %b Base price:
-  = @product.base_price
-%p
-  %b Current price:
-  = @product.current_price
-%p
-  %b Amt in stock:
-  = @product.amt_in_stock
-%p
-  %b Ven code:
-  = @product.ven_code
-%p
-  %b Min amt in order:
-  = @product.min_amt_in_order
-
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+=breadcrumb_tag do
+  %li.active
+    = @order.id
+  %li
+    = link_to 'Заказы', orders_path
+  %li
+    Администрирование
+    
+%h1
+  = @order.id
+  
+%dl
+ %dt= Product.human_attribute_name(:name)
+  %dd= @product.name
+  %dt= Product.human_attribute_name(:short_desc)
+  %dd= @product.short_desc
+  %dt= Product.human_attribute_name(:full_desc)
+  %dd= @product.full_desc
+  %dt= Product.human_attribute_name(:img_id_list)
+  %dd= @product.img_id_list
+  %dt= Product.human_attribute_name(:base_price)
+  %dd= @product.base_price
+  %dt= Product.human_attribute_name(:current_price)
+  %dd= @product.current_price
+  %dt= Product.human_attribute_name(:amt_in_stock)
+  %dd= @product.amt_in_stock
+  %dt= Product.human_attribute_name(:ven_code)
+  %dd= @product.ven_code
+  %dt= Product.human_attribute_name(:min_amt_in_order)
+  %dd= @product.min_amt_in_order

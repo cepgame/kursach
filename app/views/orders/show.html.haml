@@ -1,30 +1,30 @@
-%p#notice= notice
-
-%p
-  %b Client:
-  = @order.client
-%p
-  %b Number:
-  = @order.number
-%p
-  %b Pay method:
-  = @order.pay_method
-%p
-  %b Delivery method:
-  = @order.delivery_method
-%p
-  %b Product list:
-  = @order.product_list
-%p
-  %b Cost of products:
-  = @order.cost_of_products
-%p
-  %b Total cost:
-  = @order.total_cost
-%p
-  %b Date of order:
-  = @order.date_of_order
-
-= link_to 'Edit', edit_order_path(@order)
-\|
-= link_to 'Back', orders_path
+=breadcrumb_tag do
+  %li.active
+    = @order.id
+  %li
+    = link_to 'Заказы', orders_path
+  %li
+    Администрирование
+    
+%h1
+  = @order.id
+  
+%dl
+  %dt= Order.human_attribute_name(:client)
+  %dd= @order.client
+  %dt= Order.human_attribute_name(:number)
+  %dd= @order.number
+  %dt= Order.human_attribute_name(:pay_method)
+  %dd= @order.pay_method
+  %dt= Order.human_attribute_name(:delivery_method)
+  %dd= @order.delivery_method
+  %dt= Order.human_attribute_name(:product_list)
+  %dd= @order.product_list
+  %dt= Order.human_attribute_name(:cost_of_products)
+  %dd= @order.cost_of_products
+  %dt= Order.human_attribute_name(:total_cost)
+  %dd= @order.total_cost
+  %dt= Order.human_attribute_name(:date_of_order)
+  %dd= @order.date_of_order
+  
+    
