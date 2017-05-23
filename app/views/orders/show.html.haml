@@ -1,17 +1,17 @@
 =breadcrumb_tag do
-  %li.active
-    = @order.id
   %li
     = link_to 'Заказы', orders_path
   %li
     Администрирование
+  %li.active
+    = @order.id
     
 %h1
   = @order.id
   
 %dl
   %dt= Order.human_attribute_name(:client)
-  %dd= @order.client
+  %dd= @order.client_id
   %dt= Order.human_attribute_name(:number)
   %dd= @order.number
   %dt= Order.human_attribute_name(:pay_method)

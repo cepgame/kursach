@@ -1,13 +1,14 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Клиенты', clients_path
+  %li
+    Администрирование
   %li.active
     = t('app.clients.edit')
   %li
     = link_to(@client.id, @client)
     
-%h1= t('app.clients.edit')
+.page-header
+  %h1= t('app.clients.edit')
 
 = render 'form'
-
-= link_to 'Показать', @client
-\|
-= link_to 'Назад', clients_path

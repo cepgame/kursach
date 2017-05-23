@@ -1,11 +1,11 @@
 =breadcrumb_tag do
-  %li.active
-    = @client.name
   %li
     = link_to 'Клиенты', clients_path
   %li
     Администрирование
-    
+  %li.active
+    = @client.name
+        
 %h1
   = @client.name
 

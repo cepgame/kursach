@@ -1,14 +1,14 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Заказы', orders_path
+  %li
+    Администрирование
   %li.active
     = t('app.orders.edit')
   %li
     = link_to(@order.id, @order)
-    
-%h1= t('app.orders.edit')
-
+  
+.page-header
+  %h1= t('app.orders.edit')
 
 = render 'form'
-
-= link_to 'Показать', @order
-\|
-= link_to 'Назад', orders_path
