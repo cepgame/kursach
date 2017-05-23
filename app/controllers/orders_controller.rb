@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    set_or_create_client(@order, order_params)
 
     respond_to do |format|
       if @order.save
@@ -67,6 +68,16 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
     end
+    
+    def set_or_create_client(order, params)
+      if params[:client_id].blank?
+        order.client = Client.create(params[:client_attributes])
+        order.client_id = order.client.id
+      else
+
+        order.client = Client.find(params[:client_id])
+      end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
@@ -75,3 +86,8 @@ class OrdersController < ApplicationController
         client_attributes: [:_destroy, :id, :name, :phone_number, :address, :email])
     end
 end
+
+
+
+
+

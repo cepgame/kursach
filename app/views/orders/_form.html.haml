@@ -3,9 +3,12 @@
   / = f.hidden_field(:client_id)
   .row
     .col-md-4
+      .panel.panel-success
+      .panel-heading
+        Выбор существующуго клиента 
       .form-group
         = f.label :'Клиент'
-        = f.select(:client_id, options_for_select(Client.all.pluck('id, id'), f.object.client_id), 
+        = f.select(:client_id, options_for_select(Client.all.pluck('id, id').unshift(nil), f.object.client_id), 
             {}, class: 'form-control')
         = f.error_messages_for(:client_id)
     .col-md-4
@@ -48,20 +51,8 @@
             %span.glyphicon.glyphicon-calendar
         = f.error_messages_for(:date_of_order)
         
-  = f.fields_for :clients_attributes do |fr|
-    .row
-      .col-md-6
-        .panel.panel-success
-          .panel-heading 
-            Выбрать существущего клиента
-          .panel-body
-            .row
-              .col-md-6
-                .form-group
-                  = fr.label :Клиент
-                  = fr.select(:client_id, options_for_select(Client.all.pluck('id, id'), f.object.client_id),{}, :onChange=>"javascript: document.getElementById('order_client_attributes_name').value='asia';")                  
-        
-  = f.fields_for :clients_attributes do |fr|
+
+  = f.fields_for :client do |fr|
     .row
       .col-md-6
         .panel.panel-success
